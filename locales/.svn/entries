@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="120"
+   name=""
+   committed-date="2011-11-08T11:31:54.006545Z"
+   url="https://forge.indepnet.net/svn/dumpentity/trunk/locales"
+   last-author="remi"
+   kind="dir"
+   uuid="349b9182-4a13-0410-896f-e5e9767dd1b3"
+   revision="137"/>
+<entry
+   committed-rev="120"
+   name="en_GB.php"
+   text-time="2011-11-08T11:32:00.000000Z"
+   committed-date="2011-11-08T11:31:54.006545Z"
+   checksum="f1bfdd8f9bc59a1dff46b6bca7cafeae"
+   last-author="remi"
+   kind="file"
+   prop-time="2011-11-08T11:31:46.000000Z"/>
+<entry
+   committed-rev="120"
+   name="fr_FR.php"
+   text-time="2011-11-08T11:32:00.000000Z"
+   committed-date="2011-11-08T11:31:54.006545Z"
+   checksum="b55423d8f322c3263c927098c7349c2e"
+   last-author="remi"
+   kind="file"
+   prop-time="2011-11-08T11:31:46.000000Z"/>
+<entry
+   name="en_GB.mo"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="en_GB.po"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="fr_FR.mo"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="fr_FR.po"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+<entry
+   name="glpi.pot"
+   kind="file"
+   schedule="add"
+   revision="0"/>
+</wc-entries>
