@@ -13,4 +13,4 @@ When you have done it just press the submit button and voila, all the holidays a
 
 ## Installation
 
-Go to your plugin folder from glpi/itsm-ng folder, put file on it and extract him.
+Go to your plugin folder from itsm-ng folder, put file on it and extract him.
