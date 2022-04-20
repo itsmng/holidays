@@ -1,4 +1,4 @@
-# Holidays GLPI/ITSM-NG plugin
+# Holidays ITSM-NG plugin
 
 This plugin allows to set holidays from over 40 countries.
 
