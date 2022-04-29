@@ -22,9 +22,9 @@ function plugin_init_holidays() {
 
 function plugin_version_holidays() {
    return array('name'           => "Holidays Plugin",
-                'version'        => '1.0.0',
+                'version'        => '1.0',
                 'author'         => 'Esteban Hulin',
-                'license'        => 'GPLv2+',
+                'license'        => 'GPLv3+',
                 'homepage'       => 'https://github.com/Noblerie',
                 'minGlpiVersion' => '9.5');
  }
