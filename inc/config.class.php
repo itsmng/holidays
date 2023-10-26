@@ -106,7 +106,7 @@ class PluginHolidaysConfig extends CommonDBTM {
                INFO
             );
          }
-         return true;
       }
+      return true;
    }
 }
