@@ -1,7 +1,5 @@
 <?php
 
-use function Ramsey\Uuid\v1;
-
 include("../../../inc/includes.php");
 require_once("../inc/config.class.php");
 

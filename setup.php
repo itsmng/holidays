@@ -9,7 +9,13 @@ itsm-ng/front/calendar.php
 
 /*/
 
-function plugin_init_holidays() {
+/**
+ * Init plugin
+ * Register hooks
+ *
+ * @return void
+ */
+function plugin_init_holidays() : void {
    global $PLUGIN_HOOKS;
 
    $PLUGIN_HOOKS['csrf_compliant']['holidays'] = true;
@@ -20,24 +26,32 @@ function plugin_init_holidays() {
 
 }
 
-function plugin_version_holidays() {
+/**
+ * Define Name,Version,Author for plugin manager
+ *
+ * @return array
+ */
+function plugin_version_holidays() : array {
    return array('name'           => "Holidays Plugin",
-                'version'        => '1.0',
-                'author'         => 'Esteban Hulin',
+                'version'        => '1.1',
+                'author'         => 'Esteban Hulin, Minzord',
                 'license'        => 'GPLv3+',
-                'homepage'       => 'https://github.com/Noblerie',
-                'minGlpiVersion' => '9.5');
+                'homepage'       => 'https://github.com/itsmng/holidays');
  }
 
- function plugin_holidays_check_prerequisites() {
-   if (version_compare(GLPI_VERSION, '9.5', 'lt')) {
-      echo "This plugin Requires GLPI >= 9.5";
+ /**
+  * Check if ITSM is installed and if vendors exists
+  *
+  * @return boolean
+  */
+ function plugin_holidays_check_prerequisites() : bool {
+   if (version_compare(ITSM_VERSION, '1.0', 'lt')) {
+      echo "This plugin requires ITSM >= 1.0";
       return false;
    }
-   return true;
-}
-
-function plugin_holidays_check_config($verbose=false) {
-
+   if (!is_readable(__DIR__ . '/vendor/autoload.php') || !is_file(__DIR__ . '/vendor/autoload.php')) {
+      echo "Run composer install --no-dev in the plugin directory<br>";
+      return false;
+   }
    return true;
 }

@@ -1,6 +1,6 @@
 <?php
 
-function plugin_holidays_install() {
+function plugin_holidays_install() : bool {
     global $DB;
     $migration = new Migration(130);
     
@@ -66,7 +66,7 @@ function plugin_holidays_install() {
     return true;
 }
 
-function plugin_holidays_uninstall() {
+function plugin_holidays_uninstall() : bool {
     global $DB;
 
     $tables = [

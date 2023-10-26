@@ -1,11 +1,17 @@
 <?php
+
+use Yasumi\Yasumi;
 require '../vendor/autoload.php';
 
 class PluginHolidaysConfig extends CommonDBTM {
 
-   
-   
-   function showConfigForm($postData) {
+   /**
+    * Display the configuration form
+    *
+    * @param [type] $postData
+    * @return void
+    */
+   function showConfigForm($postData) : void {
         global $DB;
         
         $criteria = "SELECT * FROM glpi_plugin_holidays_countrylist";
@@ -46,7 +52,13 @@ class PluginHolidaysConfig extends CommonDBTM {
         Html::closeForm();
     }
    
-   function addHolidaysToCalendar($postData)
+    /**
+     * Select and insert the holidays in the calendar
+     *
+     * @param [type] $postData
+     * @return boolean
+     */
+   function addHolidaysToCalendar($postData) : bool
    {
       $holiday = new Holiday();
       $cid = $postData['calendar'];
@@ -61,7 +73,7 @@ class PluginHolidaysConfig extends CommonDBTM {
          return false;
       }
 
-      $holidays = Yasumi\Yasumi::create($postData['country'], date("Y"));
+      $holidays = Yasumi::create($postData['country'], date("Y"));
       $holidayList = $holidays->getHolidayDates();
 
       foreach ($holidayList as $hName => $hDate) {
@@ -94,7 +106,7 @@ class PluginHolidaysConfig extends CommonDBTM {
                INFO
             );
          }
-
+         return true;
       }
    }
 }
