@@ -52,7 +52,7 @@ function plugin_holidays_install() : bool {
             `id` INT(11) NOT NULL auto_increment,
             `country` varchar(255) NOT NULL,
             PRIMARY KEY (`id`)
-            ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+            ) ENGINE=innodb  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
         $DB->queryOrDie($countrylist, "erreur lors de la création de la table de configuration ".$DB->error());
 
         foreach ($countries as $country) {
