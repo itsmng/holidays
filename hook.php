@@ -59,12 +59,22 @@ function plugin_holidays_install() : bool {
             $countrylist = "INSERT INTO `glpi_plugin_holidays_countrylist` (country) VALUES ('$country')";
             $DB->queryOrDie($countrylist, $DB->error());
         }
+    } else {
+        $query = $DB->query("SELECT ENGINE FROM information_schema.TABLES WHERE ENGINE = 'myISAM' AND TABLE_NAME = 'glpi_plugin_holidays_countrylist'");
+        if($query->num_rows == 1) {
+            $DB->queryOrDie("ALTER TABLE glpi_plugin_holidays_countrylist ENGINE=InnoDB");
+        }
     }
 
     $migration->executeMigration();
 
     return true;
 }
+
+
+    // SELECT Engine FROM glpi_plugin_holidays_countrylist;
+
+
 
 function plugin_holidays_uninstall() : bool {
     global $DB;
