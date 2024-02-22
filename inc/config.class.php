@@ -13,45 +13,48 @@ class PluginHolidaysConfig extends CommonDBTM {
     */
    function showConfigForm($postData) : void {
         global $DB;
-        
+
         $criteria = "SELECT * FROM glpi_plugin_holidays_countrylist";
         $iterators = $DB->request($criteria);
 
-        echo "<form method='post' action='./config.form.php' method='post'>";
-        echo "<table class='tab_cadre' cellpadding='5'>";
-        echo "<tr><th colspan='2'>".__("Holidays configuration", 'holidays')."</th></tr>";       
-        echo "<tr class='tab_bg_1'>";
-        echo "<td>".__("Country")."</td>";
-        echo "<td id='country' name='country'>";
         foreach($iterators as $iterator) {
-               $country[$iterator['country']] = $iterator['country'];
-            }
-         if ($postData)
-            Dropdown::showFromArray("country", $country, ['value' => $postData['country']]);
-         else
-            Dropdown::showFromArray("country", $country);
-        echo "</td></tr>";
+            $country[$iterator['country']] = $iterator['country'];
+        }
 
-        echo "<tr class='tab_bg_1'>";
-        echo "<td>".__("Calendar")."</td>";
-        echo "<td>";
-        if ($postData)
-         Calendar::dropdown([
-            'name' => 'calendar',
-            'value' => $postData['calendar']
-         ]);
-         else
-        Calendar::dropdown(
-           ["name" => "calendar"]
-         );
-        echo "</td></tr>";
-        echo "<tr class='tab_bg_1'><td class='center' colspan='2'>";
-        echo "<input type='submit' name='update' class='submit'>";
-        echo "</td></tr>";
-        echo "</table>";
-        Html::closeForm();
+        $form = [
+			'action' => './config.form.php',
+			'buttons' => [
+				[
+					'type' => 'submit',
+					'name' => 'update',
+					'value' => __('Update'),
+					'class' => 'btn btn-secondary',
+				]
+			],
+			'content' => [
+				__("Holidays configuration", 'holidays') => [
+					'visible' => true,
+					'inputs' => [
+                        __('Country') => [
+                            'name' => 'country',
+                            'type' => 'select',
+                            'values' => $country,
+                            'value' => $postData['country'] ?? '',
+                        ],
+                        __('Calendar') => [
+                            'name' => 'calendar',
+                            'type' => 'select',
+                            'actions' => getItemActionButtons(['info', 'add'], "Calendar"),
+                            'values' => getOptionForItems("Calendar"),
+                            'value' => $postData['calendar'] ?? '',
+                        ]
+					]
+				]
+			]
+		];
+		renderTwigForm($form);
     }
-   
+
     /**
      * Select and insert the holidays in the calendar
      *
@@ -79,7 +82,7 @@ class PluginHolidaysConfig extends CommonDBTM {
       foreach ($holidayList as $hName => $hDate) {
 
          if (str_contains($hName, 'substitute'))
-            continue; 
+            continue;
 
          $new_holiday = [
             'name'   => $hName,

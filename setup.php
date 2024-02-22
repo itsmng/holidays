@@ -33,7 +33,7 @@ function plugin_init_holidays() : void {
  */
 function plugin_version_holidays() : array {
    return array('name'           => "Holidays Plugin",
-                'version'        => '1.1',
+                'version'        => '2.0',
                 'author'         => 'Esteban Hulin, Minzord',
                 'license'        => 'GPLv3+',
                 'homepage'       => 'https://github.com/itsmng/holidays');
@@ -45,8 +45,8 @@ function plugin_version_holidays() : array {
   * @return boolean
   */
  function plugin_holidays_check_prerequisites() : bool {
-   if (version_compare(ITSM_VERSION, '1.0', 'lt')) {
-      echo "This plugin requires ITSM >= 1.0";
+   if (version_compare(ITSM_VERSION, '2.0', 'lt')) {
+      echo "This plugin requires ITSM >= 2.0";
       return false;
    }
    if (!is_readable(__DIR__ . '/vendor/autoload.php') || !is_file(__DIR__ . '/vendor/autoload.php')) {
