@@ -91,7 +91,7 @@ class PluginHolidaysConfig extends CommonDBTM {
             'comment'   => '',
             'begin_date'   => date('Y-m-d',strtotime($hDate)),
             'end_date'   => date('Y-m-d',strtotime($hDate)),
-            'is_perpetual'  => 0
+            'is_perpetual'  => 1
          ];
 
          $hid = $holiday->add($new_holiday);
