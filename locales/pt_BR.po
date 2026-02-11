@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-10 22:30+0200\n"
+"PO-Revision-Date: 2026-02-11 22:09+0000\n"
+"Last-Translator: Leonardo Garcia <leosgarcia@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/itsm-"
+"ng/holidays/pt_BR/>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.16-dev\n"
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: inc/config.class.php:16
+msgid "Holidays configuration"
+msgstr "Configuração de feriados"
+
+#: inc/config.class.php:57
+msgid "Please chose a calendar!"
+msgstr "Por favor, escolha um calendário!"
+
+#: inc/config.class.php:92
+msgid "Holidays has been added to the calendar!"
+msgstr "Feriados foram adicionados ao calendário!"
